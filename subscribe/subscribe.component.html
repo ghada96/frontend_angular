@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+
+<div class="container " style="padding-top: 70px">
+  <h1>Inscrivez vous pour planifier vos taches</h1>
+<form [formGroup]="form" (ngSubmit)="inscription()">
+    <div class="container">
+
+      <label><b>Nom</b></label>
+      <input type="text"  required  formControlName="nom" class="form-control" >
+      <div *ngIf="nom.touched && nom.invalid" class="alert alert-danger">
+        <div *ngIf="nom.errors.required">
+          Le nom est invalid
+        </div>
+        <div *ngIf="nom.errors.minlength">
+          Le nom comporte {{nom.errors.minlength.requiredLength}} caractéres minimum
+        </div>
+      </div>
+      
+
+      
+      <label><b> prenom</b></label>
+      <input type="text"   required  formControlName="prenom" class="form-control" >
+      <div *ngIf="prenom.touched && prenom.invalid" class="alert alert-danger">
+        <div *ngIf="prenom.errors.required">
+          Le prenom est invalid
+        </div>
+        <div *ngIf="prenom.errors.minlength">
+          Le nom comporte {{prenom.errors.minlength.requiredLength}} caractéres minimum
+        </div>
+      </div>
+ 
+      <label><b>telephone</b></label>
+      <input type="text"  formControlName="tel" class="form-control" required>
+      <div *ngIf="tel.touched && prenom.invalid" class="alert alert-danger">
+        <div *ngIf="tel.errors.required">
+          Le prenom est invalid
+        </div>
+        <div *ngIf="tel.errors.minlength">
+          Le nom comporte {{tel.errors.minlength.requiredLength}} caractéres minimum
+        </div>
+      </div>
+
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" formControlName="email" class="form-control" required>
+      
+      <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+        <div *ngIf="email.errors.required">
+          L'email est invalid
+        </div>
+      </div>
+  
+      <label for="pass"><b>mot de passe</b></label>
+      <input type="password" id="pass" class="form-control" formControlName="pass" required>
+      <div *ngIf="pass.touched && pass.invalid" >
+          <div *ngIf="pass.errors.required" class="alert alert-danger">
+            le mot de passe est obligatoire
+          </div>
+          <div *ngIf="pass.errors.minLength">
+              le mot de passe doit comporte {{pass.errors.minLength.requiredLength}} caracteres minimal
+          </div>
+  
+      </div>
+  
+      <label><b>Repeter mot de passe</b></label>
+      <input type="password"  id="repass" formControlName="repass" class="form-control" required>
+      <div *ngIf="repass.touched && repass.invalid" class="alert alert-danger">
+        <div *ngIf="repass.errors.required">
+          Le mot de passe est invalid
+        </div>
+        <div *ngIf="repass.errors.minlength">
+          Le mot de passe doit comporte {{prenom.errors.minlength.requiredLength}} caractéres minimum
+        </div>
+      </div>
+      
+      <hr>
+  
+     
+      <button type="submit" class="btn btn-primary" [routerLink]="['/home']">s'inscrire</button>
+    </div>
+  </form>
+</div>

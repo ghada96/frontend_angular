@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="container " style="padding-top: 70px;">
+
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>description</th>
+            <th>date ajout</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr  *ngFor="let todo of todos">
+                <td>1</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.date | date:'shortDate'}}</td>
+                <td class="text-center">
+                    <button class="btn btn-outline-primary"[routerLink]="['/updatetodo']" type="button">done</button>
+
+                    <button class="btn btn-outline-success " [routerLink]="['/addtodo']" type="button">edit</button>
+
+
+                    <button class="btn btn-outline-danger" (click)="remove(todo)"> supprimer</button></td>
+            </tr>
+           
+        
+    </table>
+      <a href="addtodo" class="btn btn-primary btn-xs pull-right"><b>+</b> ajouter Todo</a>
+
+    </div>
+</div>
+
+<hr>
+<h2>Done ! </h2>
+
+<div class="container">
+  <div class="container">
+
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>description</th>
+            <th>date ajout</th>
+            <th>date fin</th>
+
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr>
+                <td>1</td>
+                <td>News</td>
+                <td>News Cate</td>
+                <td>News Cate</td>
+
+                <td class="text-center">
+
+                  <button class="btn btn-outline-danger" (click)="remove(todo)"> supprimer</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Products</td>
+                <td>Main Products</td>
+                <td>News Cate</td>
+
+                <td class="text-center">
+                  <button class="btn btn-outline-danger" (click)="remove(todo)"> supprimer</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Blogs</td>
+                <td>Parent Blogs</td>
+                <td>News Cate</td>
+
+                <td class="text-center">
+                  <button class="btn btn-outline-danger" (click)="remove(todo)"> supprimer</button></td>
+            </tr>
+    </table>
+    </div>
+</div>
