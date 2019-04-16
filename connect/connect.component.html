@@ -1,0 +1,43 @@
+
+<app-navbar></app-navbar>
+<div class="container " style="padding-top: 70px;">
+  <form [formGroup]="form" (ngSubmit)="inscription()">
+    
+    
+  
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label >Email</label>
+        <input formControlName="email" type="email" class="form-control"  placeholder="email"  required>
+  
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+          <div *ngIf="email.errors.required">
+            L'email est invalid
+          </div>
+        </div>
+  
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      
+    </div>
+  
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label >Mot de passe </label>
+        <input formControlName="pass" type="password" class="form-control"  placeholder="password" id="pass"  required>
+        <div *ngIf="pass.touched && pass.invalid" class="alert alert-danger">
+          <div *ngIf="pass.errors.required">
+            Le mot de passe est invalid
+          </div>
+          <div *ngIf="pass.errors.minlength">
+            Le mot de passe comporte {{pass.errors.minlength.requiredLength}} caracteres minimum
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <button class="btn btn-primary" type="submit"> Connecter</button>
+  </form>
+  </div>
